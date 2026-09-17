@@ -503,7 +503,7 @@ export default function GroupPage() {
                     setConversionApplied(false);
                     setIsConversionOpen(false);
                   }
-                  : fetchConversionRates}
+                  : () => fetchConversionRates()}
                 disabled={conversionLoading}
               >
                 {conversionApplied ? 'Back to currencies' : conversionLoading ? 'Updating…' : '₹ Convert'}
@@ -574,7 +574,7 @@ export default function GroupPage() {
                     setConversionApplied(false);
                     setIsConversionOpen(false);
                   }
-                  : fetchConversionRates}
+                  : () => fetchConversionRates()}
                 disabled={conversionLoading}
               >
                 {conversionApplied ? 'Back to currencies' : conversionLoading ? 'Updating…' : '₹ Convert'}
@@ -764,7 +764,7 @@ export default function GroupPage() {
                 <p className="conversion-source">Source: Frankfurter.app{conversionUpdatedAt ? ` · Updated ${new Date(conversionUpdatedAt).toLocaleString()}` : ''}</p>
               </>
             )}
-            <button type="button" className="conversion-refresh" onClick={fetchConversionRates} disabled={conversionLoading}>
+            <button type="button" className="conversion-refresh" onClick={() => fetchConversionRates()} disabled={conversionLoading}>
               {conversionLoading ? 'Refreshing…' : 'Refresh rates'}
             </button>
           </div>
